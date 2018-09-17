@@ -1,0 +1,23 @@
+本项目利用rem 布局：
+1rem = html 的font-size;
+一般在设计稿标注的px都是2倍像素图片 实际开发要除以2如：设计稿标注height:86px css要设置43px,
+所以在reset.css 文件里设置html {font-size: 50px;}为了方便计算 height:86px 我们就可以写成0.86rem
+
+stylus 定义颜色变量（Variables）（可以后期颜色变更更好的维护，比如要换主题 你要很多地方更改颜色，所以我们定义一个变量引用就可以）
+
+/*@import "../../../assets/stylus/varibles.styl" 相对路径太长 ../../../可以用@表示其实就是找到src目录
+  *webpack.base.conf 这有设置@符号表示src目录，但是在其他样式文件引入也想用@符号前面要加个~线，@~/assets/stylus/
+  我们想用其他一个符号代替@符号  可以这样设置 在webpack.base.conf文件里：
+  extensions: ['.js', '.vue', '.json'],
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js',
+        '@': resolve('src'),
+         'styles': resolve('src/assets/stylus'),  //这样styles 就表示src/assets/stylus目录
+      }
+
+      header 组件可以两种写法
+      /*@import "~@/assets/stylus/variables.styl"*/
+      @import "~styles/variables.styl"  注意styles前也必须加~ 因为是在样式文件里导入
+  *
+  /
+

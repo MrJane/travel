@@ -21,3 +21,33 @@ stylus 定义颜色变量（Variables）（可以后期颜色变更更好的维�
   *
   /
 
+
+  体验优化：加入轮播下面有内容的话一开始内容会在上面要等轮播图片加载完又下窜到下面 明显有个跳动
+  技巧  我们可以为swiper组件外层加个div标签设置图片大小的高,但是并不知道图片的高
+  <div class="wrapper">
+    <swiper :options="swiperOption">
+      <swiper-slide>I'm Slide 7</swiper-slide>
+    </swiper>
+  </div>
+  .wrapper{
+    width 100%
+    overflow hidden
+    height 0
+    padding-bottom 31.25% //高度没设置 padding 就会以为宽度为准
+  }
+  .wrapper .img{
+    width 100%
+  }
+
+  swiper 原点重写样式（新知识）
+   .wrapper >>> .swiper-pagination-bullet-active
+      background #fff !important
+   /*三个箭头表示样式进行穿透 只要.wrapper子组件出现。swiper-pagination-bullet-active 都显示白色 就不受scoped限制了*/
+
+.wrapper
+  background #77754d
+  /*.swiper-pagination-bullet-active*/
+  /*background #fff !important  由于默认原点是蓝色我们想改变其颜色 这样写不会生效 因为样式scoped只修饰当前组件
+  *实际上swiper-pagination显示的内容是传递swiper组件的，所以swiper组件显示的原点并不是这个当前组件显示的 即样式不会生效
+  *要向顶上那样写
+  */

@@ -4,6 +4,7 @@
     <v-swiper></v-swiper>
     <v-icons></v-icons>
     <v-recommend></v-recommend>
+    <v-weekend></v-weekend>
   </div>
 </template>
 
@@ -11,7 +12,8 @@
   import Header from './components/Header';
   import Swiper from './components/Swiper';
   import Icons from './components/Icons';
-  import Recommend from './components/Recommend'
+  import Recommend from './components/Recommend';
+  import Weekend from './components/Weekend';
 
   export default {
     name: 'Home',
@@ -19,7 +21,8 @@
       'v-header': Header,
       'v-swiper': Swiper,
       'v-icons': Icons,
-      'v-recommend': Recommend
+      'v-recommend': Recommend,
+      'v-weekend': Weekend
     }
   }
   ;

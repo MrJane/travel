@@ -27,8 +27,8 @@
   */
   .header
     display: flex
-    height: .86rem
-    line-height .86rem
+    height: $headerHeight
+    line-height $headerHeight
     width: 100%
     background $bgColor
     color #fff

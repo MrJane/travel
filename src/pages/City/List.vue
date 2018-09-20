@@ -10,56 +10,16 @@
     </div>
     <div class="area">
       <h1 class="title border-1px">热门城市</h1>
-      <div class="button-list">
-        <div class="wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="wrapper">
-          <div class="button">北京</div>
+      <div class="button-list" >
+        <div class="wrapper" v-for="hotCity in hotCites" :key="hotCity.id">
+          <div class="button">{{hotCity.name}}</div>
         </div>
       </div>
     </div>
-    <div class="area">
-    <h1 class="title border-1px">B</h1>
-    <ul class="item-list">
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-      <li class="item border-1px">阿拉尔</li>
-    </ul>
-  </div>
-    <div class="area">
-      <h1 class="title border-1px">A</h1>
+    <div class="area" v-for="(city,key) in cities" :key="key">
+      <h1 class="title border-1px">{{key}}</h1>
       <ul class="item-list">
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
-        <li class="item border-1px">阿拉尔</li>
+        <li class="item border-1px" v-for="innerCity in city" :key="innerCity.id">{{innerCity.name}}</li>
       </ul>
     </div>
   </div>
@@ -67,7 +27,11 @@
 
 <script>
   export default {
-    name: 'CityList'
+    name: 'CityList',
+    props: ['cities', 'hotCites'],
+    mounted () {
+      console.log(this.hotCites);
+    }
   };
 </script>
 

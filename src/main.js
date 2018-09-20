@@ -4,11 +4,14 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
+import Axios from 'axios';
 import 'styles/reset.css';
 import 'styles/iconfont.css';
 
 // require styles
 import 'swiper/dist/css/swiper.css';
+Vue.prototype.$ajax = Axios;
+Axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5b9f833674aa2d5c47499640';
 
 Vue.use(VueAwesomeSwiper);
 Vue.config.productionTip = false;

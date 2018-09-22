@@ -1,23 +1,33 @@
 <template>
-    <div class="recommend">
-      <div class="title">热销推荐</div>
-      <ul>
-        <li class="item">
-            <img class="img" src="http://img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_200x200_ea02ef99.jpg" alt="">
-          <div class="info">
-            <p class="info-title">自然户外好去处</p>
-            <p class="info-desc">快快来到户外，感受花城的魅力</p>
-            <button>查看详情</button>
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div class="recommend">
+    <div class="title">热销推荐</div>
+    <ul>
+      <router-link class="item" tag="li" :to="'/detail/'+item.id" v-for="item in list" :key="item.id">
+        <img class="img" src="http://img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_200x200_ea02ef99.jpg"
+             alt="">
+        <div class="info">
+          <p class="info-title">{{item.title}}</p>
+          <p class="info-desc">{{item.desc}}</p>
+          <button>查看详情</button>
+        </div>
+      </router-link>
+    </ul>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'Recommend'
-    };
+  export default {
+    name: 'Recommend',
+    data () {
+      return {
+        list: [
+          {id: '001', title: '自然户外好去处', desc: '快快来到户外，感受花城的魅力'},
+          {id: '002', title: '自然户外好去处', desc: '快快来到户外，感受花城的魅力'},
+          {id: '003', title: '自然户外好去处', desc: '快快来到户外，感受花城的魅力'}
+        ]
+      };
+    }
+  };
 </script>
 
 <style lang="stylus" scoped>
